@@ -27,14 +27,14 @@
       ]
     },
     "strict": false,
-    "strictNullChecks": true
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "next.config.ts", "src/app/detail/[id]/page.jsx", "src/app/edit/[id]/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

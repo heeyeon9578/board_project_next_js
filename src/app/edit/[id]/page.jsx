@@ -1,11 +1,11 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-import Post from "../../../../src/util/types";
+import Post from "../../../util/types";
 
 
 
 
-export default async function Edit({ params }: { params: { id: string } }) {
+export default async function Edit({ params }) {
 
     const postId = params.id;
 

@@ -1,7 +1,7 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import Post from "../../../../src/util/types";
-export default async function Detail({ params }: { params: { id: string } }) {
+export default async function Detail({ params }) {
   const postId = params.id;
 
   // MongoDB ObjectId 유효성 검사

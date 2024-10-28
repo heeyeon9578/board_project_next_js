@@ -1,6 +1,6 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-
+import Comment from './Comment';
 // `params`는 컴포넌트의 속성으로 제공되므로 비동기 함수로 설정
 export default async function Detail({ params }) {
   const postId = params.id;
@@ -29,11 +29,15 @@ export default async function Detail({ params }) {
 
     // JSX 반환
     return (
+      <>
       <div>
         <h4>상세페이지</h4>
         <h4>{result.title}</h4>
         <p>{result.content}</p>
       </div>
+
+     <Comment parentId={postId}></Comment>
+      </>
     );
   } catch (error) {
     console.error("Error fetching post:", error);

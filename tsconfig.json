@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "next.config.ts", "src/app/detail/[id]/page.jsx", "src/app/edit/[id]/page.jsx"  ],
+, "next.config.ts", "src/app/detail/[id]/page.jsx", "src/app/edit/[id]/page.jsx", "src/app/layout.jsx", "pages/api/post/delete.js", "src/app/write/page.jsx", "pages/api/post/edit.js", "pages/api/post/new.js", "src/app/list/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

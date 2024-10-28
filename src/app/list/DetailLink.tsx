@@ -8,6 +8,6 @@ export default function DetailLink(){
     let b = useSearchParams();
     
     return(
-        <button onClick={()=>{router.push(`/detail/123`)}}>버튼</button>
+        <button >버튼</button>
     )
 }

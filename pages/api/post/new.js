@@ -1,29 +1,33 @@
 import { connectDB } from "@/util/database";
 import Post from "../../../src/util/types";
-import { ObjectId } from "mongodb";
+import { getServerSession } from "next-auth";
+import {authOptions} from "../auth/[...nextauth]";
+import Session from '@/util/types';
 
 export default async function handler(req, res){
     if(req.method === "POST"){
-        console.log(req.body);
         
-  
+        
+        let session = await getServerSession(req, res, authOptions);
+        console.log(session.user.email);
+        if(session){
+            req.body.author = session.user.email;
+        }
         if(req.body.title ===''){
             return res.status(500).json("제목을 입력하세요");
         }else if(req.body.content ===''){
             return res.status(500).json("내용을 입력하세요");
         }
-
-        let changeData = {title: req.body.title , content: req.body.content};
+       
+        // let postData = 
         try{
             const db = (await connectDB).db("forum");
-            let result = await db.collection('post').updateOne({_id: new ObjectId(req.body._id.toString())},
-                 { $set : changeData} );
-            return res.redirect(302, '/list')
+            let result = await db.collection('post').insertOne(req.body);
         }catch(error){
             return res.status(500).json(`${error}`);
         }
        
-       
+        return res.status(200).redirect(`/list`);
       
 
     }

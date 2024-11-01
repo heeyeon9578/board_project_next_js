@@ -1,10 +1,11 @@
 import { connectDB } from "@/util/database";
-import bcrypt from 'bcrypt';
+
 
 export default async function handler(req, res){
     if(req.method==="POST"){
         
         try{
+            const bcrypt = require('bcryptjs');
             let hash = await bcrypt.hash(req.body.password, 10);
             console.log(hash);
             let db = (await connectDB).db("forum");

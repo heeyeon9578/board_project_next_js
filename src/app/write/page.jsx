@@ -1,28 +1,42 @@
-import { getServerSession } from "next-auth";
-import {authOptions} from "../../../pages/api/auth/[...nextauth]";
-import Link from 'next/link'
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import LoginBtn from "../loginButton";
-export default async function Write(){
+import InsertImg from "./insertImg";
 
-  let session = await getServerSession(authOptions);
-  
+export default function Write() {
+    const [session, setSession] = useState(null);
+
+    useEffect(() => {
+        const fetchSession = async () => {
+            try {
+                const res = await fetch("/api/session");
+                if (res.ok) {
+                    const data = await res.json();
+                    setSession(data);
+                } else {
+                    setSession(null);
+                }
+            } catch (error) {
+                console.error("Failed to fetch session:", error);
+                setSession(null);
+            }
+        };
+
+        fetchSession();
+    }, []);
+
     return (
-      <div>
-        <h4>글작성</h4>
-        {session ? (
-          <form action="/api/post/new" method="POST">
-            <input name="title" placeholder="글 제목 입력하세요"></input>
-            <input name="content"  placeholder="글 내용 입력하세요"></input>
-            <button type="submit">버튼</button>
-          </form>
-        ):(
-          <>
-            <div>로그인 후 사용해주세요!</div>
-            <LoginBtn>
-            </LoginBtn>
-          </>
-        )}
-        
-      </div>
-    )
-  }
+        <div>
+            <h4>글작성</h4>
+            {session ? (
+                <InsertImg />
+            ) : (
+                <>
+                    <div>로그인 후 사용해주세요!</div>
+                    <LoginBtn />
+                </>
+            )}
+        </div>
+    );
+}

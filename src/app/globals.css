@@ -1,53 +1,95 @@
-a{
+
+/* 다크 모드 및 라이트 모드 공통 스타일 */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Navbar 스타일 */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: var(--navbar-bg);
+  color: var(--navbar-color);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar 링크 스타일 */
+.navbar a {
+  margin-right: 20px;
   text-decoration: none;
-  color: #000;
+  color: inherit; /* 다크/라이트 모드에 따라 색상 변환 */
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
-.list-bg {
-  background: rgb(249, 250, 255);
-  padding: 10px;
+
+/* Logo 스타일 */
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: inherit;
+  margin-right: auto;
 }
+
+/* 버튼 스타일 */
+button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+.dark button {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.dark button:hover {
+  background-color: #444;
+}
+
+/* 리스트 아이템 스타일 */
 .list-item {
-  background: white;
+  background: #ffffff;
   border-radius: 10px;
   padding: 20px;
-  margin-bottom: 5px;
-  box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.dark .list-item {
+  background: #2a2a2a;
+  color: #e0e0e0;
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.1);
+}
+
 .list-item h4 {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: bold;
   margin: 0;
 }
+
 .list-item p {
   color: grey;
-  margin : 5px 0px;
-} 
+  margin: 5px 0;
+}
+
+/* 기타 스타일 */
 .p-20 {
   padding: 20px;
 }
-input {
-  box-sizing: border-box;
-  padding: 10px;
-  display: block;
-  margin-bottom: 10px;
-}
-button {
-  padding: 10px 15px;
-  background: lightgray;
-  border: none;
-  border-radius: 5px;
-} 
-.navbar {
-  background: white;
-  padding: 20px;
-}
-.navbar a {
-  margin-right: 10px;
-  text-decoration: none;
-  color: black;
-}
-.logo {
-  font-weight: bold;
-} 

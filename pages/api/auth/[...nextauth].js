@@ -7,8 +7,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions = {
   providers: [
     GithubProvider({
-      clientId: 'Ov23lizh4NcrexhaxGuP',
-      clientSecret: 'bd39a820f19f0df4cbdd67989f59f7284f071541',
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
      
     }),
     CredentialsProvider({
@@ -68,7 +68,7 @@ export const authOptions = {
       return session;
     },
   },
-  secret : 'qwer1234!@#$',
+  secret : process.env.NEXTAUTH_SECRET,
   adapter:MongoDBAdapter(connectDB)
 };
 export default NextAuth(authOptions); 

@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
  // useNewUrlParser 옵션을 제거합니다.
- const url = 'mongodb+srv://admin:gmldus9906^^@cluster0.pvj4t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+ const url = process.env.DATABASE_KEY;
 
 let connectDB
 

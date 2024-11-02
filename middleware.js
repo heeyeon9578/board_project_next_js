@@ -10,21 +10,21 @@ export async function middleware(request) {
 //   NextResponse.redirect()  //다른페이지 이동
 //   NextResponse.rewrite()  //다른페이지 이동
 
-    request.cookies.get('쿠키이름')  //출력
-    request.cookies.has('쿠키이름')  //존재확인
-    request.cookies.delete('쿠키이름')  //삭제
+    // request.cookies.get('쿠키이름')  //출력
+    // request.cookies.has('쿠키이름')  //존재확인
+    // request.cookies.delete('쿠키이름')  //삭제
 
-    if(request.nextUrl.pathname==='/list'){
+    // if(request.nextUrl.pathname==='/list'){
         
-        console.log(`request.headers`,new Date(),request.headers.get('sec-ch-ua-platform')); //사파리는 불가, 현재 os 정보 출력
-        return NextResponse.next(); 
-    }
+    //     console.log(`request.headers`,new Date(),request.headers.get('sec-ch-ua-platform')); //사파리는 불가, 현재 os 정보 출력
+    //     return NextResponse.next(); 
+    // }
 
-    if(request.nextUrl.pathname==='/write'){
+    // if(request.nextUrl.pathname==='/write'){
         
-        if(session===null){
-            return NextResponse.redirect(`${process.env.BASE_URL}/api/auth/signin`); 
-        }
+    //     if(session===null){
+    //         return NextResponse.redirect(`${process.env.BASE_URL}/api/auth/signin`); 
+    //     }
         
-    }
+    // }
 } 
